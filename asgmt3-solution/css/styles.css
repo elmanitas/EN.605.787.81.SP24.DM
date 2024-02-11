@@ -1,3 +1,7 @@
+body {
+    min-width: 320px;
+}
+
 /** HEADER **/
 #header-nav {
     background-color: antiquewhite;
@@ -50,12 +54,12 @@ section {
    padding: 0px;
 }
 .menu-item {
-background-color: antiquewhite;
-margin: 15px 15px 0px 0px;
-padding: 15px;
+    background-color: antiquewhite;
+    margin: 15px 15px 0px 0px;
+    padding: 15px;
 }
 .row {
-padding: 15px 0px 0px 15px;
-margin: 0;
+    padding: 15px 0px 0px 15px;
+    margin: 0;
 }
 /* END MENU SECTIONS */
