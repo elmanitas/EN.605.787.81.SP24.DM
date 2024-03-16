@@ -38,8 +38,7 @@
      <h2>To Buy:</h2>
         <table>
           <tr ng-repeat="item in toBuyList.items">
-            <td>Buy {{item.quantity}} {{item.name}}</td>
-            <td>&nbsp;<input ng-model="item.pricePerItem" width="10px">&nbsp;</td>
+            <td>Buy <input ng-model="item.quantity" size="5"> {{item.name}}</td>
             <td>&nbsp;</td>
             <td><button class="btn btn-default" ng-click="toBuyList.moveItem($index)">
                 <span class="glyphicon glyphicon-ok"></span> Bought
