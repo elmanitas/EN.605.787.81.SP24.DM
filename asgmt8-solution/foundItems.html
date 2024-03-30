@@ -1,0 +1,13 @@
+<table>
+    <tr>
+        <th>Short Name</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr ng-repeat="item in list.found">
+        <td>{{item.short_name}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td><button ng-click="list.removeItem($index);">Don't want this one!</button></td>
+    </tr>
+</table>
