@@ -1,0 +1,12 @@
+<h4>Menu Item Details</h4>
+<ul>
+    <li ng-repeat="item in itemsList.items">
+      <b>Name:</b> {{item.name}} <br>
+      <b>Description:</b> {{item.description}} <br>
+      <b ng-if="item.large_portion_name">{{item.large_portion_name}}:</b> 
+      <b ng-if="!item.large_portion_name">Price:</b> 
+        {{item.price_large | currency}} <br>
+      <b ng-if="item.small_portion_name">{{item.small_portion_name}}:</b>  
+        {{item.price_small | currency}} <br><br>
+    </li>
+</ul>
