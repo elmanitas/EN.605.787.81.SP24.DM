@@ -2,35 +2,28 @@ body {
   font-size: 1.2em;
 }
 
-div.tabs > a, div.tabs > button {
-  margin-right: 10px;
-  font-size: 1.2em;
-}
-
-div.tabs {
-  margin-bottom: 10px;
-}
-
 .activeTab {
   font-weight: bold;
 }
 /* unvisited link */
-a:link {
+.catLink:link {
   color: red;
-  
 }
 
 /* visited link */
-a:visited {
+.catLink:visited {
   color: green;
+  background-color: aqua;
+  text-decoration: underline;
 }
 
 /* mouse over link */
-a:hover {
+.catLink:hover {
   color: hotpink;
+  text-decoration: underline;
 }
 
 /* selected link */
-a:active {
+catLink:active {
   color: blue;
 }

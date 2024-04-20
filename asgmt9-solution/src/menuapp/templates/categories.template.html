@@ -1,11 +1,13 @@
-<a ui-sref="home">Home</a> &lt; <span>Categories</span>
+<a ui-sref="home" class="myLink">Home</a> &lt; <span>Categories</span>
 
 <h3>Menu Categories</h3>
-<ul>
+<ul >
     <li ng-repeat="category in mainList.categories"
     ui-sref="categories.items({categoryShortName: category.short_name})">
-      {{ category.name }}
+      <a class="catLink" ng-click="mainList.getCurrentCategory(category.name)">
+        {{ category.name }}</a>
     </li>
 </ul>
+<h4>{{ mainList.currentCategory }}</h4>
 <ui-view></ui-view>
   
