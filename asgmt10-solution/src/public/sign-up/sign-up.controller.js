@@ -15,6 +15,7 @@
     }
 
     $ctrl.validateMenuNumber = function(number) {
+      console.log("validating number");
       $ctrl.isMenuNumberValid = false;
       $ctrl.isMenuNumberValidated = false;
       if(number){
@@ -28,6 +29,5 @@
         });
       }
     } 
-    //$ctrl.regex="\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})";
   }
 })();

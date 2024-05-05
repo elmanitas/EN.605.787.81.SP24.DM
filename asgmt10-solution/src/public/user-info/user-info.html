@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 ng-if="userInfoCtrl.menuItem === null">Not Signed Up Yet. Sign up Now!</h2>
+    <h2 ng-if="userInfoCtrl.menuItem === null">Not Signed Up Yet. <a ui-sref="public.sign-up">Sign up Now!</a></h2>
 
        <table ng-if="userInfoCtrl.menuItem !== null">
        <tr>
