@@ -1,11 +1,60 @@
 <div class="container">
-  <h2 id="menu-categories-title" class="text-center">My Info</h2>
-  <!-- <div class="text-center">
-    Substituting white rice with brown rice or fried rice after 3:00pm will be $1.50 for a pint and $2.50 for a quart.
-  </div>
+    <h2 ng-if="userInfoCtrl.menuItem === null">Not Signed Up Yet. Sign up Now!</h2>
 
-  <menu-category ng-repeat="menuCategory in menuCtrl.menuCategories"
-                 category="menuCategory">
-  </menu-category> -->
-
-</div>
+       <table ng-if="userInfoCtrl.menuItem !== null">
+       <tr>
+         <td> 
+          <b>First Name:</b> 
+         </td>
+         <td>
+           {{userInfoCtrl.userInfo.firstname}}
+         </td>
+       </tr>
+       <tr>
+         <td>
+           <b>Last Name:</b>
+         </td>
+         <td>
+           {{userInfoCtrl.userInfo.lastname}}
+         </td>
+       </tr>
+       <tr>
+         <td>
+           <b>Email Address:</b>
+          </td>
+          <td>
+           {{userInfoCtrl.userInfo.email}}
+         </td>
+       </tr>
+       <tr>
+         <td>
+           <b>Phone Number:</b>
+          </td>
+          <td>
+           {{userInfoCtrl.userInfo.phone}}
+         </td>
+       </tr>
+       <tr>
+         <td>
+           <b>Favorite:</b>
+         </td>
+         <td>
+          <table ng-if="userInfoCtrl.menuItem" >
+            <tr>
+              <td colspan="2"><img class="img-responsive" width="250" height="150" 
+                ng-src="images/menu/{{userInfoCtrl.category}}/{{userInfoCtrl.menuItem.short_name}}.jpg" 
+                alt="{{userInfoCtrl.menuItem.name}}"></td>
+            </tr>
+            <tr>
+              <td>Title: </td><td>{{userInfoCtrl.menuItem.name}}</td>
+            </tr>
+            <tr>
+              <td>Description: </td><td>{{userInfoCtrl.menuItem.description}}</td>
+            </tr>
+            
+          </table>
+         </td>
+       </tr>
+       </table>
+ </div>
+   

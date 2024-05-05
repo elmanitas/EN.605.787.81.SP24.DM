@@ -1,14 +1,30 @@
 (function () {
-"use strict";
+    "use strict";
+  
+    angular.module('public')
+    .controller('UserInfoController', UserInfoController);
+  
+    UserInfoController.$inject = ['UserInfoService', 'MenuService'];
+    function UserInfoController(UserInfoService, MenuService) {
+      var $ctrl = this;
 
-angular.module('public')
-.controller('MenuController', MenuController);
+      $ctrl.userInfo = UserInfoService.getUserInfo();
 
-MenuController.$inject = ['menuCategories'];
-function MenuController(menuCategories) {
-  var $ctrl = this;
-  $ctrl.menuCategories = menuCategories;
-}
-
-
-})();
+      $ctrl.menuItem = (function () {
+        if($ctrl.userInfo == null){
+          return null;
+        } else {
+          return MenuService.getMenuItem($ctrl.userInfo.favorite).then((response) => {
+            $ctrl.menuItem = response;  
+          });
+        }
+      })();
+      $ctrl.category = (function () {
+        if($ctrl.userInfo == null){
+          return null;
+        } else {
+          return MenuService.getCategory($ctrl.userInfo.favorite);
+        }
+      })();
+    }
+  })();

@@ -1,34 +1,139 @@
 <div class="container">
-<div class="container" ng-controller="SignUpController as signUp">
-  <h2 id="menu-categories-title" class="text-center">Sign Up Form</h2>
-
+ <form name="signUpForm" novalidate>
   <fieldset>
     <legend>Sign Up Form</legend>
-    <form name="signUpForm" novalidate>
-
-      <input type="text" name="firstname" placeholder="Enter your first name"
-        ng-model="signUpCtrl.user.firstname"
-        required
-        minlength="1"
-        ng-maxlength="10">
-        {{signUpCtrl.user.firstname}}
-        <span
-          ng-if="(signUpForm.firstname.$error.minlength ||
-          signUpForm.firstname.$error.required) && signUpForm.firstname.$touched">
-          First name must be at least 1 character long
-        </span>
-        <span
-          ng-if="signUpForm.firstname.$error.maxlength && 
-          signUpForm.firstname.$touched">
-          First name must not be longer than 10 characters long
-        </span>
-
-        <button
-          ng-disabled="signUpForm.$invalid"
-          ng-click="signUpCtrl.submit(signUpCtrl.user)">Submit
-        </button>
-
-    </form>
+   
+      <table>
+      <tr>
+        <td>
+          First Name
+        </td>
+        <td> 
+          <input class="form-input" type="text" name="firstname" placeholder="Enter your first name"
+            ng-model="signUpCtrl.user.firstname"
+            required
+            minlength="1"
+            ng-maxlength="10">
+        </td>
+        <td>
+          <span
+            ng-if="(signUpForm.firstname.$error.minlength ||
+            signUpForm.firstname.$error.required) && signUpForm.firstname.$touched">
+            First name must be at least 1 character long
+          </span>
+          <span
+            ng-if="signUpForm.firstname.$error.maxlength && 
+            signUpForm.firstname.$touched">
+            First name must not be longer than 10 characters long
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Last Name
+        </td>
+        <td> 
+          <input class="form-input" type="text" name="lastname" placeholder="Enter your last name"
+            ng-model="signUpCtrl.user.lastname"
+            required
+            minlength="1"
+            ng-maxlength="10">
+        </td>
+        <td>
+          <span
+            ng-if="(signUpForm.lastname.$error.minlength ||
+            signUpForm.lastname.$error.required) && signUpForm.lastname.$touched">
+            Last name must be at least 1 character long
+          </span>
+          <span
+            ng-if="signUpForm.lastname.$error.maxlength && 
+            signUpForm.lastname.$touched">
+            Last name must not be longer than 10 characters long
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Email Address
+        </td>
+        <td>
+          <input class="form-input" type="email" name="email" placeholder="Enter your email address"
+            ng-model="signUpCtrl.user.email"
+            required>
+        </td>
+        <td>
+          <span
+            ng-if="signUpForm.email.$error.required && signUpForm.email.$touched">
+            Please enter a valid email!
+          </span>
+          <span
+            ng-if="signUpForm.email.$error.email && signUpForm.email.$touched">
+            Not a valid email!
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Phone Number
+        </td>
+        <td>
+          <input class="form-input" type="tel" name="phone" placeholder="Enter your phone number"
+            ng-model="signUpCtrl.user.phone"
+            pattern="\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})"
+            required>
+        </td>
+        <td>
+          <span
+            ng-if="signUpForm.phone.$error.required && signUpForm.phone.$touched">
+            Please enter a valid number!
+          </span>
+          <span
+            ng-if="signUpForm.phone.$error.pattern && signUpForm.phone.$touched">
+            Not a valid number!
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Favorite
+        </td>
+        <td>
+          <input ng-blur="signUpCtrl.validateMenuNumber(signUpCtrl.user.favorite)" 
+          class="form-input" type="text" name="favorite" placeholder="Enter menu number"
+            ng-model="signUpCtrl.user.favorite"
+            required
+            minlength="1"
+            ng-maxlength="4">
+        </td>
+        <td>
+          <span
+            ng-if="signUpForm.favorite.$error.required && signUpForm.favorite.$touched">
+            Please enter a valid menu number!
+          </span>
+          <span
+            ng-if="!signUpCtrl.isMenuNumberValid && (signUpCtrl.isMenuNumberValidated && 
+            signUpForm.favorite.$touched)">
+            No such menu number exists
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button
+            ng-mouseover="signUpCtrl.validateMenuNumber(signUpCtrl.user.favorite)" 
+            ng-disabled="signUpForm.$invalid || !signUpCtrl.isMenuNumberValid"
+            ng-click="signUpCtrl.submit(signUpCtrl.user)">Submit
+          </button>
+        </td>
+      </tr>
+      </table>
+   
+    <span
+      ng-if="signUpCtrl.infoSubmitted">
+      Your information has been saved
+    </span>
   </fieldset>
-
+ </form>
 </div>
+  

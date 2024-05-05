@@ -5,6 +5,8 @@ body {
   font-family: 'Oxygen', sans-serif;
 }
 
+/* fieldset{min-width:10px;padding:10px;margin:10%;border:solid} */
+
 .initial-loading {
   margin-top: 60px;
 }
@@ -118,6 +120,8 @@ a[ui-sref="admin.auth"] {
   color: #fff;
 }
 /* END FOOTER */
+
+
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
